@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: postgres16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tp5_adr_db
+      POSTGRES_USER: tp5_adr_user
+      POSTGRES_PASSWORD: tp5_adr
+    ports:
+      - "5432:5432"   # si 5432 ya está usado, cambiá a "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tp5_adr_user -d tp5_adr_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
