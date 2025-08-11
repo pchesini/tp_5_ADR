@@ -1,3 +1,4 @@
+# 
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
@@ -31,3 +32,17 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# --------------------
+# Archivos con credenciales ,no subir al repo
+# --------------------
+application-local.properties
+application-secrets.properties
+application-local.yml
+application-secrets.yml
+
+# --------------------
+# Docker y otros
+# --------------------
+.env
+*.pid
