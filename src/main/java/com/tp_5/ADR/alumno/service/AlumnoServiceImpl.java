@@ -61,9 +61,10 @@ public class AlumnoServiceImpl implements AlumnoService {
         return toResponse(repo.save(a));
     }
 
-    @Override @Transactional
-    public void eliminar(Long id) {
-        if (!repo.existsById(id)) throw new NotFoundException("Alumno no encontrado");
+     @Override
+     @Transactional
+        public void eliminar(Long id) {
+        repo.deleteById(id);
     }
 
     @Override @Transactional(readOnly = true)
